@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'angularapp123123';
+  title = 'angularapp';
   countryListUrl = "https://api.first.org/data/v1/countries";
   countryFlag: string;
   constructor(private http: HttpClient) { }

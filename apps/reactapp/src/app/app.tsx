@@ -24,7 +24,7 @@ export class App extends Component {
     this.setState({newDetails : ++this.counter})
   }
   render() {
-    const title = 'reactappusudsudu';
+    const title = 'reactapp';
     
     return (
       <div>
