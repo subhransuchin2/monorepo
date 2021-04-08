@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 // bootstrap shared web components
-import '@happynrwl/ui';
+import '@nxdemo/ui';
 
 export const environment = {
   production: false

@@ -1,5 +1,5 @@
 {
-  "npmScope": "happynrwl",
+  "npmScope": "nxdemo",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",

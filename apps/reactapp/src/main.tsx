@@ -5,4 +5,4 @@ import * as ReactDOM from 'react-dom';
 
 import { App } from './app/app';
 
-ReactDOM.render(<App />, document.querySelector('happynrwl-root'));
+ReactDOM.render(<App />, document.querySelector('nxdemo-root'));

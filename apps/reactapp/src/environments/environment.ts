@@ -4,7 +4,7 @@
 
 // bootstrap shared web components
 import 'reflect-metadata';
-import '@happynrwl/ui';
+import '@nxdemo/ui';
 
 export const environment = {
   production: false
