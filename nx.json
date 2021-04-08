@@ -1,5 +1,5 @@
 {
-  "npmScope": "happynrwl",
+  "npmScope": "nxdemo",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -21,6 +21,15 @@
       "tags": []
     },
     "ui": {
+      "tags": []
+    },
+    "nxdemolib1": {
+      "tags": []
+    },
+    "saman": {
+      "tags": []
+    },
+    "saman-e2e": {
       "tags": []
     }
   }

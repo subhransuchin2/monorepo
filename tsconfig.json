@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@happynrwl/ui": ["libs/ui/src/index.ts"],
-      "@happynrwl/ui-prod": ["dist/libs/ui/main.js"]
+      "@nxdemo/ui": ["libs/ui/src/index.ts"],
+      "@nxdemo/nxdemolib1": ["libs/nxdemolib1/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
