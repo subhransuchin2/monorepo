@@ -20,7 +20,12 @@
             "tsConfig": "apps/angularapp/tsconfig.app.json",
             "assets": [
               "apps/angularapp/src/favicon.ico",
-              "apps/angularapp/src/assets"
+              "apps/angularapp/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/ui/src/assets",
+                "output": "/assets/"
+              }
             ],
             "styles": ["apps/angularapp/src/styles.css"],
             "scripts": [],
@@ -37,6 +42,9 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/ui/src/lib/styles"]
+              },
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
@@ -265,6 +273,144 @@
         }
       },
       "schematics": {}
+    },
+    "nxdemolib1": {
+      "root": "libs/nxdemolib1",
+      "sourceRoot": "libs/nxdemolib1/src",
+      "projectType": "library",
+      "prefix": "nxdemo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/nxdemolib1/tsconfig.lib.json",
+              "libs/nxdemolib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/nxdemolib1/jest.config.js",
+            "tsConfig": "libs/nxdemolib1/tsconfig.spec.json",
+            "setupFile": "libs/nxdemolib1/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "saman": {
+      "root": "apps/saman/",
+      "sourceRoot": "apps/saman/src",
+      "projectType": "application",
+      "prefix": "nxdemo",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/saman",
+            "index": "apps/saman/src/index.html",
+            "main": "apps/saman/src/main.ts",
+            "polyfills": "apps/saman/src/polyfills.ts",
+            "tsConfig": "apps/saman/tsconfig.app.json",
+            "assets": ["apps/saman/src/favicon.ico", "apps/saman/src/assets"],
+            "styles": ["apps/saman/src/styles.css"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/saman/src/environments/environment.ts",
+                  "with": "apps/saman/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "saman:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "saman:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "saman:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/saman/tsconfig.app.json",
+              "apps/saman/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/saman/jest.config.js",
+            "tsConfig": "apps/saman/tsconfig.spec.json",
+            "setupFile": "apps/saman/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "saman-e2e": {
+      "root": "apps/saman-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/saman-e2e/cypress.json",
+            "tsConfig": "apps/saman-e2e/tsconfig.e2e.json",
+            "devServerTarget": "saman:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "saman:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/saman-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -275,5 +421,5 @@
     "defaultCollection": "@nrwl/schematics"
   },
   "schematics": {},
-  "defaultProject": "angularapp"
+  "defaultProject": "saman"
 }

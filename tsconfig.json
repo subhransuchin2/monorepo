@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@nxdemo/ui": ["libs/ui/src/index.ts"],
-      "@nxdemo/ui-prod": ["dist/libs/ui/main.js"]
+      "@nxdemo/nxdemolib1": ["libs/nxdemolib1/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

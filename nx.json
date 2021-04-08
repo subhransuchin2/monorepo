@@ -22,6 +22,15 @@
     },
     "ui": {
       "tags": []
+    },
+    "nxdemolib1": {
+      "tags": []
+    },
+    "saman": {
+      "tags": []
+    },
+    "saman-e2e": {
+      "tags": []
     }
   }
 }
